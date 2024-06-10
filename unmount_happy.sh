@@ -1,3 +1,3 @@
 #!/bin/sh
 
-fusermount -u ~/happy_share/
+fusermount -u /moshpit
