@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the source directory where the script will search for video files
-source_dir="/home/sacha/Downloads/incoming"
+source_dir="/incoming"
 
 general_destination_dir="/moshpit/movies"
 tv_shows_destination_dir="/moshpit/tv"
