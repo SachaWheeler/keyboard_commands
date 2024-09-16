@@ -1,11 +1,15 @@
 #!/bin/bash
 
-# Define the source directory where the script will search for video files
-source_dir="/home/sacha/Downloads/incoming"
+echo "fix this first"
+exit
 
-general_destination_dir="/moshpit/movies"
-tv_shows_destination_dir="/moshpit/tv"
-music_destination_dir="/moshpit/Music/Automatically Add to Music.localized"
+# Define the source directory where the script will search for video files
+source_dir="/hoard/incoming"
+
+destination_dir="/media/sacha/moshpit"
+general_destination_dir="$destination_dir/movies"
+tv_shows_destination_dir="$destination_dir/tv"
+music_destination_dir="$destination_dir/Music/incoming"
 
 # Create the destination directories if they don't exist
 mkdir -p "$general_destination_dir"
