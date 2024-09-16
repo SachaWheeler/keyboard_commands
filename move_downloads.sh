@@ -1,10 +1,10 @@
 #!/bin/bash
 
-echo "fix this first"
-exit
+# echo "fix this first"
+# exit
 
 # Define the source directory where the script will search for video files
-source_dir="/hoard/incoming"
+source_dir="/home/sacha/Downloads/incoming"
 
 destination_dir="/media/sacha/moshpit"
 general_destination_dir="$destination_dir/movies"
