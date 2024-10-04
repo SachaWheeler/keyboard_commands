@@ -31,9 +31,9 @@ swap_chrome_windows() {
     fi
 }
 
-# Check if the temporary file exists
+# Check if the temporary file exists and is not empty or old
 # if [ ! -f "$temp_file" ]; then
-if [ ! -e "$temp_file" ] || [ "$temp_file" -ot "$(date -d '1 day ago' '+%s')" ]; then
+if [ ! -e "$temp_file" ] || [ "$temp_file" -ot "$(date -d '1 day ago' '+%s')" ] || [ ! -s "$temp_file" ]; then
     get_frontmost_window_id
 else
     swap_chrome_windows
