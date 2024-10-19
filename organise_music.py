@@ -53,7 +53,7 @@ def process_audio_files(directory, music_directory):
             os.makedirs(album_dir, exist_ok=True)
 
             # Define new file name and path
-            new_file_name = f"{track_number} {title}.mp3"
+            new_file_name = f"{track_number} {title}.mp3".replace('/', '_')
             new_file_path = os.path.join(album_dir, new_file_name)
 
             # Move and rename the file
