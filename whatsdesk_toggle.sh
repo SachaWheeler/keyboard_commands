@@ -1,10 +1,11 @@
 #!/bin/bash
 
 # Define the application name
-app_name="WhatsDesk"
+# app_name="WhatsDesk"
+app_name="WhatsApp Web"
 
 # Check if the application is running
-if pgrep -x "$app_name" > /dev/null; then
+# if pgrep -x "$app_name" > /dev/null; then
     # If running, get the window ID
     window_id=$(wmctrl -l | grep "$app_name" | awk '{print $1}')
     echo "id: ${window_id}"
@@ -23,10 +24,10 @@ if pgrep -x "$app_name" > /dev/null; then
         echo "Toggled $app_name window below all others."
     fi
 
-else
+# else
     # If not running, start the application
-    echo "$app_name is not running. Starting it now."
+    # echo "$app_name is not running. Starting it now."
     # Example: /path/to/whatsdesk &
-    /snap/bin/whatsdesk &
-fi
+    # /snap/bin/whatsdesk &
+# fi
 
