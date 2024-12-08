@@ -24,7 +24,7 @@ if (( ${cpu_load%.*} > CPU_THRESHOLD )); then
             # Send an alert (you can customize this with notify-send or other notification tools)
             notify-send "Alert: $PROCESS_NAME running with high CPU load" \
                 "CPU Load: $cpu_load%"
-            /new-home/sacha/bin/mac_say.sh "Plex Music Analyzer is running"
+            /home/sacha/bin/mac_say.sh "Plex Music Analyzer is running"
         fi
     fi
 fi
