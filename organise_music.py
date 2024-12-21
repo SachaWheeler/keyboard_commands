@@ -30,7 +30,15 @@ def process_audio_files(directory, music_directory):
         for file in files:
             file_path = os.path.join(root, file)
             if not file.lower().endswith('.mp3'):
+                os.remove(file_path)
+                original_dir = os.path.dirname(file_path)
+                try:
+                    os.rmdir(original_dir)
+                except:
+                    pass
                 continue
+
+            """
                 # Convert non-MP3 files to MP3
                 mp3_path = os.path.splitext(file_path)[0] + '.mp3'
                 try:
@@ -39,6 +47,7 @@ def process_audio_files(directory, music_directory):
                     print(e, file_path)
                     continue
                 file_path = mp3_path
+            """
 
             # Retrieve and use MP3 metadata for renaming and organizing
             try:
