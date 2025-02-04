@@ -1,6 +1,7 @@
 #!/usr/bin/bash
 
-rsync -rav --exclude .git/ \
+rsync -rav \
+        --exclude .git/ \
         --exclude .cache/ \
         --exclude .config/ \
         --exclude .local/ \
