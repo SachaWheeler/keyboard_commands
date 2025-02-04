@@ -16,8 +16,8 @@ def get_mp3_metadata(file_path):
     audio = MP3(file_path, ID3=ID3)
     tags = audio.tags
     title = tags.get('TIT2', 'Unknown Title').text[0]
-    artist = tags.get('TPE1', 'Unknown Artist').text[0]
-    album = tags.get('TALB', 'Unknown Album').text[0]
+    artist = tags.get('TPE1', 'Unknown Artist').text[0].replace("/", "_")
+    album = tags.get('TALB', 'Unknown Album').text[0].replace("/", "_")
     track_number = tags.get('TRCK', '0').text[0].split('/')[0].zfill(2)
     return title, artist, album, track_number
 
@@ -60,6 +60,7 @@ def process_audio_files(directory, music_directory):
             artist_dir = os.path.join(music_directory, artist)
             album_dir = os.path.join(artist_dir, album)
             os.makedirs(album_dir, exist_ok=True)
+            os.chmod(album_dir, 0o775)
 
             # Define new file name and path
             new_file_name = f"{track_number} {title}.mp3".replace('/', '_')
@@ -67,6 +68,7 @@ def process_audio_files(directory, music_directory):
 
             # Move and rename the file
             shutil.move(file_path, new_file_path)
+            os.chmod(new_file_path, 0o775)
             print(f"Moved {file_path} to {new_file_path}")
 
             # Check if the original directory is empty and remove it if it is
@@ -78,7 +80,7 @@ def process_audio_files(directory, music_directory):
 # Define the directory to scan and the music directory
 root = '/media/sacha/moshpit/Music'
 directory_to_scan = f'{root}/incoming'
-music_directory = f'{root}/Music'
+music_directory = f'{root}/upgrades'
 
 # Process the audio files
 process_audio_files(directory_to_scan, music_directory)
