@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-rsync -rav \
+rsync -ra \
         --exclude .git/ \
         --exclude .cache/ \
         --exclude .config/ \
@@ -8,8 +8,8 @@ rsync -rav \
         --exclude .ssh/ \
         --exclude .var/ \
         --exclude __pycache__/ \
-        /backup/hoard \
-        /work \
         /moshpit \
+        /work \
         /home \
-        happy@happy.local:/Volumes/storage/ --delete
+        /backup/hoard \
+        pi@pihole.local:/media/pi/storage/ --delete
