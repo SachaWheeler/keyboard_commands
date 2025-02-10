@@ -13,3 +13,5 @@ rsync -ra \
         /home \
         /backup/hoard \
         pi@pihole.local:/media/pi/storage/ --delete
+
+touch /storage/timestamp.txt
