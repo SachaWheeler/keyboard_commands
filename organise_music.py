@@ -78,7 +78,7 @@ def process_audio_files(directory, music_directory):
                 print(f"Removed empty directory: {original_dir}")
 
 # Define the directory to scan and the music directory
-root = '/media/sacha/moshpit/Music'
+root = '/moshpit/Music'
 directory_to_scan = f'{root}/incoming'
 music_directory = f'{root}/upgrades'
 

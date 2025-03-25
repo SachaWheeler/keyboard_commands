@@ -46,6 +46,8 @@ find "$dir1" -type f | while read -r file1; do
         echo "Replaced: $file1 with $replacement"
     fi
 done
+# remove empty dirs
+find "$dir2" -mindepth 1 -type d -empty -print -delete
 
 echo "File replacement process completed."
 

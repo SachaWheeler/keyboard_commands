@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-rsync -ra \
+rsync -rav \
         --exclude .git/ \
         --exclude .cache/ \
         --exclude .config/ \
@@ -8,10 +8,9 @@ rsync -ra \
         --exclude .ssh/ \
         --exclude .var/ \
         --exclude __pycache__/ \
-        /moshpit \
-        /work \
         /home \
-        /backup/hoard \
-        pi@pihole.local:/media/pi/storage/ --delete
+        /usr/share/ollama \
+        /work \
+        sacha@monster.local:/storage/venus --delete
 
-touch /storage/timestamp.txt
+touch /storage/venus-timestamp.txt
