@@ -79,7 +79,8 @@ def process_audio_files(directory, music_directory):
 
 # Define the directory to scan and the music directory
 root = '/moshpit/Music'
-directory_to_scan = f'{root}/incoming'
+# directory_to_scan = f'{root}/incoming'
+directory_to_scan = '/home/sacha/Downloads/music'
 music_directory = f'{root}/upgrades'
 
 # Process the audio files
