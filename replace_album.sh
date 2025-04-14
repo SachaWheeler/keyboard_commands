@@ -47,7 +47,9 @@ find "$dir1" -type f | while read -r file1; do
     fi
 done
 # remove empty dirs
-find "$dir2" -mindepth 1 -type d -empty -print -delete
+# find "$dir2" -mindepth 1 -type d -empty -print -delete
+find /moshpit/Music/upgrades -mindepth 1 -type d -empty -delete
+
 
 echo "File replacement process completed."
 
