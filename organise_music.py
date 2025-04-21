@@ -6,20 +6,23 @@ from mutagen.mp3 import MP3
 from mutagen.id3 import ID3, TIT2, TPE1, TALB, TRCK
 from pydub import AudioSegment
 
+
 def convert_to_mp3(file_path, output_path):
     """Convert an audio file to MP3 format."""
     audio = AudioSegment.from_file(file_path)
     audio.export(output_path, format="mp3")
 
+
 def get_mp3_metadata(file_path):
     """Retrieve metadata from an MP3 file."""
     audio = MP3(file_path, ID3=ID3)
     tags = audio.tags
-    title = tags.get('TIT2', 'Unknown Title').text[0]
-    artist = tags.get('TPE1', 'Unknown Artist').text[0].replace("/", "_")
-    album = tags.get('TALB', 'Unknown Album').text[0].replace("/", "_")
-    track_number = tags.get('TRCK', '0').text[0].split('/')[0].zfill(2)
+    title = tags.get("TIT2", "Unknown Title").text[0]
+    artist = tags.get("TPE1", "Unknown Artist").text[0].replace("/", "_")
+    album = tags.get("TALB", "Unknown Album").text[0].replace("/", "_")
+    track_number = tags.get("TRCK", "0").text[0].split("/")[0].zfill(2)
     return title, artist, album, track_number
+
 
 def process_audio_files(directory, music_directory):
     """Scan the directory for audio files, convert and organize them."""
@@ -29,7 +32,7 @@ def process_audio_files(directory, music_directory):
     for root, _, files in os.walk(directory):
         for file in files:
             file_path = os.path.join(root, file)
-            if not file.lower().endswith('.mp3'):
+            if not file.lower().endswith(".mp3"):
                 os.remove(file_path)
                 original_dir = os.path.dirname(file_path)
                 try:
@@ -63,7 +66,7 @@ def process_audio_files(directory, music_directory):
             os.chmod(album_dir, 0o775)
 
             # Define new file name and path
-            new_file_name = f"{track_number} {title}.mp3".replace('/', '_')
+            new_file_name = f"{track_number} {title}.mp3".replace("/", "_")
             new_file_path = os.path.join(album_dir, new_file_name)
 
             # Move and rename the file
@@ -77,12 +80,12 @@ def process_audio_files(directory, music_directory):
                 os.rmdir(original_dir)
                 print(f"Removed empty directory: {original_dir}")
 
+
 # Define the directory to scan and the music directory
-root = '/moshpit/Music'
+root = "/moshpit/Music"
 # directory_to_scan = f'{root}/incoming'
-directory_to_scan = '/home/sacha/Downloads/music'
-music_directory = f'{root}/upgrades'
+directory_to_scan = "/home/sacha/Downloads/music"
+music_directory = f"{root}/upgrades"
 
 # Process the audio files
 process_audio_files(directory_to_scan, music_directory)
-

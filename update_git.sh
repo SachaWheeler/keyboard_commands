@@ -7,4 +7,4 @@ for dir in *.git; do
 done
 
 rsync -a --delete /work/github-mirror sacha@monster.local:/backup/github/
-
+ssh monster "touch /backup/github/timestamp.txt"
